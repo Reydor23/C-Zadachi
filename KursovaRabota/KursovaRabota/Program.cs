@@ -55,11 +55,8 @@ namespace KursovaRabota
                             comsEt.Output();
                         }
                         break;
-                    default: Console.WriteLine("Invalid! Try again!");
-                    // choice = int.Parse(Console.ReadLine());
-                    //break; 
-                    continue;
-                         
+                    default: Console.WriteLine("Invalid! Try again!");                   
+                    continue;                           
                 }
             }while(choice != 1 || choice != 2);
             
