@@ -9,10 +9,30 @@ namespace KursovaRabota
     internal class Company
     {
         private string nameCompany, companyBulstat;
-        private DateTime dateOfCompanyCreation;
+        //private DateTime dateOfCompanyCreation;
 
         protected string ownerName;
         protected float firstCapital, actualCapital;
+
+        public void Input()
+        {
+            Console.WriteLine("Enter bulstat: ");
+            string buls = Console.ReadLine();
+           // Console.WriteLine("Company Date: ");          
+           //ateOfCompanyCreation = DateTime.Parse(Console.ReadLine());
+            try
+            {
+                CompanyBulstat = buls;
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine();
+                throw;
+            }
+
+        }
+
 
         public Company(string nameOwner, float firstCap, float actualCap)
         {
@@ -68,27 +88,7 @@ namespace KursovaRabota
                 }
             
             }                 
-        }    
-
-        public void Input()
-        {
-            Console.WriteLine("Enter bulstat: ");
-            string buls = Console.ReadLine();
-            //Console.WriteLine("Company Date: ");          
-           // dateOfCompanyCreation = DateTime.Parse(Console.ReadLine());
-            try
-            {
-                CompanyBulstat = buls;
-            }
-            catch (ArgumentException ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine();
-                throw;
-            }          
-
-        }
-
+        }                
 
     }
 }
