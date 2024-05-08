@@ -18,14 +18,12 @@ namespace KursovaRabota
             Console.WriteLine("Choose a Company\n1.CompanyET\n2.CompanyLLC");
             Console.Write("Choose: ");
             int choice = int.Parse(Console.ReadLine());
-            do
-            {
-                Console.Write("Try again!\nChoose: ");
-                choice = int.Parse(Console.ReadLine());
 
+            do
+            {                        
                 switch (choice) 
-            {
-                case 1:                  
+                {
+                case 1:                           
                     for (int i = 0; i < companyChoice; i++)
                     {
                         CompanyET comEt = new CompanyET("", 0, 0);
@@ -49,21 +47,30 @@ namespace KursovaRabota
                         comLLC.Input();
                         comLLC.CalculateProfit();                       
                         companies[i] = comLLC;                        
-                    }
+                    }                     
                     Console.WriteLine("All Firms info:");
                     foreach (CompanyOOD comsEt in companies)
                     {
                         comsEt.Output();
                     }
-                    break;
-                       
+                    break;                      
                     default:                        
-                     Console.WriteLine("Invalid choice!");
-                    break;
+                     Console.WriteLine("Invalid choice! Try again!");
+                        Console.Write("Choose: ");
+                        choice = int.Parse(Console.ReadLine());
+                        break;
             }
             } while (choice != 1 && choice != 2);
 
+            var sortedCompanies = companies.OrderBy(c => c.OwnerName);
 
+            // Display sorted companies
+            Console.WriteLine("Sorted Companies by Last Name");
+            foreach (var company in sortedCompanies)
+            {
+                company.Output();
+                
+            }
 
         }
     }

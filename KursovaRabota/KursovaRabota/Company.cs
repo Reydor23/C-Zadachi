@@ -88,7 +88,11 @@ namespace KursovaRabota
                 }
             
             }                 
-        }                
+        }  
+        public void Output()
+        {
+            Console.WriteLine($"Name:{ownerName}");
+        }
 
     }
 }
