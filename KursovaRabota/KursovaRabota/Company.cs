@@ -11,10 +11,35 @@ namespace KursovaRabota
         private string nameCompany, companyBulstat;
         private DateTime dateOfCompanyCreation;
 
-        protected string nameOfOwner;
+        protected string ownerName;
         protected float firstCapital, actualCapital;
 
-       
+        public Company(string nameOwner, float firstCap, float actualCap)
+        {
+            nameCompany = nameOwner;
+            firstCapital = firstCap;
+            actualCapital = actualCap;
+
+        }
+
+        public string OwnerName
+        {
+            get { return ownerName; }
+            set { ownerName = value; }
+        }
+
+        public float FirstCapital
+        {
+            get { return firstCapital; }
+            set { firstCapital = value; }
+        }
+
+        public float ActualCapital
+        {
+            get { return actualCapital; }
+            set { actualCapital = value; }
+        }
+
         public string NameCompany 
         { 
             get { return nameCompany; } 
@@ -43,12 +68,14 @@ namespace KursovaRabota
                 }
             
             }                 
-        }
+        }    
+
         public void Input()
         {
             Console.WriteLine("Enter bulstat: ");
             string buls = Console.ReadLine();
-
+            //Console.WriteLine("Company Date: ");          
+           // dateOfCompanyCreation = DateTime.Parse(Console.ReadLine());
             try
             {
                 CompanyBulstat = buls;
